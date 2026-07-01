@@ -5,12 +5,7 @@
       "memory": 1024
     }
   },
-  "builds": [
-    {
-      "src": "app.py",
-      "use": "@vercel/python"
-    }
-  ],
+
   "routes": [
     {
       "src": "/(.*)",
