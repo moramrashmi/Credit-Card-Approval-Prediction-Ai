@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Credit Card Approval Prediction</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <h2>SmartBridge</h2>
+
+    </nav>
+
+    <div class="container">
+
+        <h1>Credit Card Approval Prediction</h1>
+
+        <form action="/predict" method="POST">
+
+            <div class="grid">
+
+                <div>
+
+                    <label>Gender</label>
+
+                    <select name="CODE_GENDER">
+
+                        <option value="1">Male</option>
+                        <option value="0">Female</option>
+
+                    </select>
+
+                </div>
+
+                <div>
+
+                    <label>Own Car</label>
+
+                    <select name="FLAG_OWN_CAR">
+
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+
+                    </select>
+
+                </div>
+
+                <div>
+
+                    <label>Own Real Estate</label>
+
+                    <select name="FLAG_OWN_REALTY">
+
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+
+                    </select>
+
+                </div>
+
+                <div>
+
+                    <label>Children</label>
+
+                    <input
+                        type="number"
+                        name="CNT_CHILDREN"
+                        min="0"
+                        required>
+
+                </div>
+                <div>
+
+                    <label>Total Annual Income</label>
+
+                    <input
+                        type="number"
+                        name="AMT_INCOME_TOTAL"
+                        placeholder="Income"
+                        required>
+
+                </div>
+
+                <div>
+
+                    <label>Income Type</label>
+
+                    <select name="NAME_INCOME_TYPE">
+
+                        <option value="0">Commercial Associate</option>
+                        <option value="1">Pensioner</option>
+                        <option value="2">State Servant</option>
+                        <option value="3">Student</option>
+                        <option value="4">Working</option>
+
+                    </select>
+
+                </div>
+
+                <div>
+
+                    <label>Education</label>
+
+                    <select name="NAME_EDUCATION_TYPE">
+
+                        <option value="0">Academic Degree</option>
+                        <option value="1">Higher Education</option>
+                        <option value="2">Incomplete Higher</option>
+                        <option value="3">Lower Secondary</option>
+                        <option value="4">Secondary / Secondary Special</option>
+
+                    </select>
+
+                </div>
+
+                <div>
+
+                    <label>Family Status</label>
+
+                    <select name="NAME_FAMILY_STATUS">
+
+                        <option value="0">Civil Marriage</option>
+                        <option value="1">Married</option>
+                        <option value="2">Separated</option>
+                        <option value="3">Single / Not Married</option>
+                        <option value="4">Widow</option>
+
+                    </select>
+
+                </div>
+
+                <div>
+
+                    <label>Housing Type</label>
+
+                    <select name="NAME_HOUSING_TYPE">
+
+                        <option value="0">Co-op Apartment</option>
+                        <option value="1">House / Apartment</option>
+                        <option value="2">Municipal Apartment</option>
+                        <option value="3">Office Apartment</option>
+                        <option value="4">Rented Apartment</option>
+                        <option value="5">With Parents</option>
+
+                    </select>
+
+                </div>
+
+                <div>
+
+                    <label>Occupation</label>
+
+                    <select name="OCCUPATION_TYPE">
+
+                        <option value="0">Accountants</option>
+                        <option value="1">Cleaning Staff</option>
+                        <option value="2">Cooking Staff</option>
+                        <option value="3">Core Staff</option>
+                        <option value="4">Drivers</option>
+                        <option value="5">HR Staff</option>
+                        <option value="6">High Skill Tech Staff</option>
+                        <option value="7">IT Staff</option>
+                        <option value="8">Laborers</option>
+                        <option value="9">Low-skill Laborers</option>
+                        <option value="10">Managers</option>
+                        <option value="11">Medicine Staff</option>
+                        <option value="12">Private Service Staff</option>
+                        <option value="13">Realty Agents</option>
+                        <option value="14">Sales Staff</option>
+                        <option value="15">Secretaries</option>
+                        <option value="16">Security Staff</option>
+                        <option value="17">Waiters/Barmen Staff</option>
+
+                    </select>
+
+                </div>
+
+                <div>
+
+                    <label>Age (Years)</label>
+
+                    <input
+                        type="number"
+                        name="AGE"
+                        min="18"
+                        max="100"
+                        placeholder="Enter Age"
+                        required>
+
+                </div>
+
+                <div>
+
+                    <label>Employment Duration (Years)</label>
+
+                        <input
+                            type="number"
+                            name="EMPLOYMENT"
+                            min="0"
+                            max="50"
+                            placeholder="Employment Years"
+                            required>
+
+                </div>
+
+                <div>
+
+                    <label>Number of Family Members</label>
+
+                    <input
+                        type="number"
+                        name="CNT_FAM_MEMBERS"
+                        required>
+
+                </div>
+
+            </div>
+
+            <button type="submit">
+
+                Predict Approval
+
+            </button>
+
+        </form>
+
+        {% if prediction %}
+
+        <div class="result">
+
+            <h2>{{ prediction }}</h2>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
