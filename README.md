@@ -249,7 +249,7 @@ The prediction is displayed as:
 
 # 👨‍💻 Author
 
-**Chandra Sekhar**
+**Rashmi Moram**
 
 AI & Data Science Student
 
